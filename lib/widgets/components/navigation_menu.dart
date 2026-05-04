@@ -45,7 +45,9 @@ class NavigationMenu extends StatelessWidget {
                       topLeft: Radius.circular(25)
                     ),
                    boxShadow: [
-                      BoxShadow(color:  LColors.secondaryGrey, blurRadius:10, spreadRadius: 0),
+                      BoxShadow(
+                          color:  LColors.secondaryGrey,
+                          blurRadius:10, spreadRadius: 0),
                     ],
                   ),
                   child: Center(

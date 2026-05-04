@@ -22,7 +22,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LAppbar.SecondAppBar(''),
+      appBar: LAppbar.SecondAppBar('',[]),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
         child: SingleChildScrollView(

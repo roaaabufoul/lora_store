@@ -44,8 +44,9 @@ class LAppbar {
     ],
   );
   
-  static AppBar SecondAppBar(String? title){
+  static AppBar SecondAppBar(String? title, List<Widget>? actions){
     return AppBar(
+      actions: actions ?? [],
       title: Padding(
         padding: const EdgeInsets.only(left: 8),
         child: Text(title ??''),
