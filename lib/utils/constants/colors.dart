@@ -19,7 +19,7 @@ static const Color thirdGrey = Color(0xFFF1F2F3);
   static const Color success = Color(0xFF38E8C3);
   static const Color warning = Color(0xFFF57C00);
   static const Color info    = Color(0xFF1976D2);
-
+  static const Color green = Color(0xFF508A7B);
   // Neutral Shades
   static const Color darkBackground = Color(0xFF141416);
   static const Color black      = Color(0xFF232323);

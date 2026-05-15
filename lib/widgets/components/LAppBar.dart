@@ -44,12 +44,12 @@ class LAppbar {
     ],
   );
   
-  static AppBar SecondAppBar(String? title, List<Widget>? actions){
+  static AppBar SecondAppBar(Widget? title, List<Widget>? actions){
     return AppBar(
       actions: actions ?? [],
       title: Padding(
         padding: const EdgeInsets.only(left: 8),
-        child: Text(title ??''),
+        child: title,
       ),
       titleTextStyle: TextStyle(
         fontSize: 18,

@@ -7,6 +7,7 @@ import 'package:lora_store/utils/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widgets/components/LAppBar.dart';
+import '../../widgets/items_listView.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -128,17 +129,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: SmoothPageIndicator(
                             controller: PageController(),
                             count: 3,
-                          effect: ExpandingDotsEffect(
-                            dotHeight:8,
-                            dotWidth: 8,
-                            activeDotColor: Colors.white,
-                            strokeWidth: 1,
-                            spacing:15,
-                            expansionFactor: 3,
-                            radius: 5,
-                            dotColor: Colors.white,
-                            paintStyle: PaintingStyle.stroke
-                          ),
                         ),
                       ),
                       Positioned(
@@ -178,43 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       itemCount: 8,
                         itemBuilder: (context , index){
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin : EdgeInsets.fromLTRB(0, 0, 20, 13),
-                             width:160.w,
-                              height: 220.h,
-                              decoration: BoxDecoration(
-                                color: LColors.secondaryGrey,
-                                borderRadius: BorderRadius.circular(15)
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
-                                child: Image.asset('assets/images/featured.png',
-                                  fit: BoxFit.cover,),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left:5),
-                              child: Column(
-                                spacing: 3,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Turtleneck Sweater',
-                                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                  ),),
-                                  Text('\$ 39.99',
-                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),),
-                                ],
-                              ),
-                            )
-                          ],
-
-                        );
+                        return ItemsListView();
                         },
                     ),
                   ),
@@ -598,5 +552,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
 

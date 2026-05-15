@@ -19,7 +19,7 @@ class _ShowItemsScreenState extends State<ShowItemsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LAppbar.SecondAppBar('Dresses',[]),
+      appBar: LAppbar.SecondAppBar(Text('Dresses',),[]),
       body: SingleChildScrollView(
         child: SingleChildScrollView(
           child: Padding(
@@ -95,7 +95,7 @@ class _ShowItemsScreenState extends State<ShowItemsScreen> {
                                             ),)
                                       ],
                                     ),
-                                    StarsWidget(size: 12,)
+                                    StarsWidget(size: 12, reviewCount: 46,)
                                   ],
                                 ),
                               )
@@ -114,11 +114,14 @@ class _ShowItemsScreenState extends State<ShowItemsScreen> {
 }
 
 class StarsWidget extends StatelessWidget {
-  const StarsWidget({
-    super.key, required this.size,
-
-  });
+   StarsWidget({
+    super.key, 
+    required this.size,
+     this.reviewCount
+  }
+);
     final double size;
+     int? reviewCount;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -132,7 +135,7 @@ class StarsWidget extends StatelessWidget {
                , color: Color(0xFF508A7B),size: size,);
            }),
          ),
-        Text('(64)',
+        Text(reviewCount == null ? '' :'(${reviewCount.toString()})',
             style: TextStyle(
               fontSize: 14,
               color: LColors.textSecondary,

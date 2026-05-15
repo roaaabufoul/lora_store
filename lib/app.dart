@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:lora_store/screens/categories/item_details.dart';
 import 'package:lora_store/screens/on_boarding/welcome_screen.dart';
 import 'package:lora_store/utils/theme/theme.dart';
 import 'package:lora_store/widgets/components/navigation_menu.dart';

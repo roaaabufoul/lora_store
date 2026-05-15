@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lora_store/utils/constants/colors.dart';
 import 'package:lora_store/widgets/components/LAppBar.dart';
 
+import '../../widgets/items_listView.dart';
 import 'filter_content.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: LAppbar.SecondAppBar('',[]),
+      appBar: LAppbar.SecondAppBar(Text(''),[]),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
         child: SingleChildScrollView(
@@ -164,43 +165,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (context , index){
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin : EdgeInsets.fromLTRB(0, 0, 20, 13),
-                          width:160.w,
-                          height: 220.h,
-                          decoration: BoxDecoration(
-                              color: LColors.secondaryGrey,
-                              borderRadius: BorderRadius.circular(15)
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.asset('assets/images/featured.png',
-                              fit: BoxFit.cover,),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left:5),
-                          child: Column(
-                            spacing: 3,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Tunic white shirt',
-                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                ),),
-                              Text('\$ 39.99',
-                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),),
-                            ],
-                          ),
-                        )
-                      ],
-
-                    );
+                    return ItemsListView();
                   },
                 ),
               ),
