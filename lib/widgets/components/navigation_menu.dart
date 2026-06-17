@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lora_store/screens/navigation_items/discover_screen.dart';
+import 'package:lora_store/screens/navigation_items/my_orders_screen.dart';
 import 'package:lora_store/widgets/components/LAppBar.dart';
 import '../../screens/navigation_items/home_screen.dart';
 import '../../utils/constants/colors.dart';
@@ -31,9 +32,7 @@ class NavigationMenu extends StatelessWidget {
                     () => Container(
                   width: double.infinity,
                   height: 90.h,
-                  // padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 4.h),
-                  //margin: EdgeInsets.symmetric(horizontal: 50.w, vertical: 40.h),
-                  decoration: BoxDecoration(
+                   decoration: BoxDecoration(
                     color: Colors.white,
                     border:Border(
                       top: BorderSide(
@@ -123,7 +122,7 @@ class NavigationMenu extends StatelessWidget {
 
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
-  final screens = [HomeScreen(), DiscoverScreen(), HomeScreen(), Container()];
+  final screens = [HomeScreen(), DiscoverScreen(), MyOrdersScreen(), Container()];
 
   void changePage(int index) {
     selectedIndex.value = index;

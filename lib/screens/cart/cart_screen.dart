@@ -23,7 +23,7 @@ class _CartScreenState extends State<CartScreen> {
         style: TextStyle(
           fontSize: 22.sp,
         ),),
-      ), []),
+      ), [],),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -162,112 +162,143 @@ class _CartScreenState extends State<CartScreen> {
                   }),
 
             ),
-            Container(
-              padding: EdgeInsets.only(top: 25.h, left: 30.w,right: 30.w,bottom:30),
-              width: double.infinity.w,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(2, 2),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                    color: LColors.secondaryGrey
-                  )
-                ]
-              ),
-              child: Column(
-                children: [
-                  // price
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   children: [
-                     Text('Product price',
-                     style: TextStyle(
-                       fontSize: 18.sp,
-                       color: Colors.grey,
-                       fontWeight: FontWeight.w500
-                     ),),
-                     Text('\$110',
-                       style: TextStyle(
-                           fontSize: 18.sp,
-                           color: Colors.black,
-                           fontWeight: FontWeight.w500
-                       ),),
-
-                   ],
-                 ),
-                  Divider(
-                    thickness: 1,
-                    color: LColors.grey,
-                    height: 50,
-                  ),
-                  // shipping
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Shipping',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500
-                        ),),
-                      Text('Freeship',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500
-                        ),),
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1,
-                    color: LColors.grey,
-                    height: 50,
-                  ),
-                  // subtotal
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Subtotal',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500
-                        ),),
-                      Text('\$110',
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold
-                        ),),
-                    ],
-                  ),
-
-                  // proceed to checkout button
-                  Container(
-                    margin: EdgeInsets.only(top: LSizes.spaceBtwItems*2),
-                    width: 350.w,
-                    height: 65.h,
-                    child: ElevatedButton(
-                        onPressed: ()=> Get.to(()=>Checkoutscreen()),
-                        style: ElevatedButton.styleFrom(
-                        backgroundColor: LColors.primaryGrey
-                        ),
-                    child: Text('Proceed to checkout',
-                    style: TextStyle(
-                       color: Colors.white,
-                      fontWeight: FontWeight.w700
-                    ),)),
-                  ),
-                //  SizedBox(height: 300,)
-                ],
-              ),
-            )
+            shippingPriceWidget(buttonOnPressed: ()=> Get.to(()=>Checkoutscreen()),)
           ],
         ),
       ),
+    );
+  }
+}
+
+class shippingPriceWidget extends StatelessWidget {
+   shippingPriceWidget({
+    super.key, required this.buttonOnPressed,
+     this.row
+  }
+  );
+  Widget? row;
+  final VoidCallback buttonOnPressed;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 25.h, left: 30.w,right: 30.w,bottom:30),
+      width: double.infinity.w,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(2, 2),
+            blurRadius: 10,
+            spreadRadius: 2,
+            color: LColors.secondaryGrey
+          )
+        ]
+      ),
+      child: Column(
+        children: [
+          // price
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Text('Product price',
+             style: TextStyle(
+               fontSize: 18.sp,
+               color: Colors.grey,
+               fontWeight: FontWeight.w500
+             ),),
+             Text('\$110',
+               style: TextStyle(
+                   fontSize: 18.sp,
+                   color: Colors.black,
+                   fontWeight: FontWeight.w500
+               ),),
+
+           ],
+         ),
+          Divider(
+            thickness: 1,
+            color: LColors.grey,
+            height: 50,
+          ),
+          // shipping
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Shipping',
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500
+                ),),
+              Text('Freeship',
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500
+                ),),
+            ],
+          ),
+          Divider(
+            thickness: 1,
+            color: LColors.grey,
+            height: 50,
+          ),
+          // subtotal
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Subtotal',
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500
+                ),),
+              Text('\$110',
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                ),),
+            ],
+          ),
+            if(row != null)
+              row!,
+          // proceed to checkout button
+          ProcessButton(
+            onPressed : buttonOnPressed,
+            title: 'Proceed to checkout',
+          ),
+        //  SizedBox(height: 300,)
+        ],
+      ),
+    );
+  }
+}
+
+class ProcessButton extends StatelessWidget {
+  const ProcessButton({
+    super.key,
+     required this.title, required this.onPressed
+  });
+   final String title;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: LSizes.spaceBtwItems*1.5),
+      width: 350.w,
+      height: 65.h,
+      child: ElevatedButton(
+          onPressed:onPressed ,
+          style: ElevatedButton.styleFrom(
+          backgroundColor: LColors.primaryGrey
+          ),
+      child: Text(title,
+      style: TextStyle(
+         color: Colors.white,
+        fontWeight: FontWeight.w700
+      ),)),
     );
   }
 }

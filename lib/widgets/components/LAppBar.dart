@@ -44,7 +44,7 @@ class LAppbar {
     ],
   );
   
-  static AppBar SecondAppBar(Widget? title, List<Widget>? actions){
+  static AppBar SecondAppBar(Widget? title, List<Widget>? actions, {VoidCallback? onPressed}){
     return AppBar(
       actions: actions ?? [],
       title: Padding(
@@ -78,9 +78,7 @@ class LAppbar {
               ]
           ),
           child: IconButton(
-              onPressed: (){
-                Get.back();
-              },
+              onPressed:onPressed ?? ()=>Get.back(),
               icon: Icon(CupertinoIcons.back,size: 24,)),
         ),
       ),
