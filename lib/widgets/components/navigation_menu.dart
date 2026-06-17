@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lora_store/screens/navigation_items/discover_screen.dart';
-import 'package:lora_store/screens/navigation_items/my_orders_screen.dart';
+import 'package:lora_store/screens/navigation_items/orders/my_orders_screen.dart';
 import 'package:lora_store/widgets/components/LAppBar.dart';
 import '../../screens/navigation_items/home_screen.dart';
 import '../../utils/constants/colors.dart';
